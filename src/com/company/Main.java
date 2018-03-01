@@ -61,8 +61,8 @@ public class Main {
         if(toPostal.equals("")||toPostal.length()!=7||!Character.isLetter(toPostal.charAt(0))){
             throw new IllegalArgumentException("ERROR: Input 'To' cannot be empty/in wrong format");
         }
-        if(len==0||wid ==0||height==0||weight==0){
-            throw new IllegalArgumentException("ERROR: Input Length/Width/Height/Weight cannot be 0");
+        if(len<=0||wid <=0||height<=0||weight<=0){
+            throw new IllegalArgumentException("ERROR: Input Length/Width/Height/Weight must be over 0");
         }
         if(!lowercase_type.equals("regular")&&!lowercase_type.equals("xpress")&&!lowercase_type.equals("priority")){
             throw new IllegalArgumentException("ERROR: Input Type does not match any option");

@@ -63,8 +63,8 @@ public class calculatorTest {
         //If all input are correct
         public void Test10() {
             Main calculator = new Main();
-            boolean vadility = calculator.isValidEntries("H2X 2E2", "H3A 1H3", 10.5, 10.5, 20.0, 10.0, "xpress");
-            assertEquals(true,vadility);
+            boolean validity = calculator.isValidEntries("H2X 2E2", "H3A 1H3", 10.5, 10.5, 20.0, 10.0, "xpress");
+            assertEquals(true,validity);
         }
 
     //test determineLocation()
