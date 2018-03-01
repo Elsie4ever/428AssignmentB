@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    //to be simplified, we will divide canada into west and east
+    //to simplify, we will divide canada into west and east
     //we assume west-to-west/east-to-east to be regional mailing
     //east-to-west/west-to-east to be national mailing
     public enum Location {
@@ -56,10 +56,10 @@ public class Main {
         String lowercase_type = type.toLowerCase();
         //assume the calculator is to calculate rate within in Canada only
         if(fromPostal.equals("")||fromPostal.length()!=7||!Character.isLetter(fromPostal.charAt(0))){
-            throw new IllegalArgumentException("ERROR: Input 'From' is cannot be empty/in wrong format");
+            throw new IllegalArgumentException("ERROR: Input 'From' cannot be empty/in wrong format");
         }
         if(toPostal.equals("")||toPostal.length()!=7||!Character.isLetter(toPostal.charAt(0))){
-            throw new IllegalArgumentException("ERROR: Input 'To' is cannot be empty/in wrong format");
+            throw new IllegalArgumentException("ERROR: Input 'To' cannot be empty/in wrong format");
         }
         if(len==0||wid ==0||height==0||weight==0){
             throw new IllegalArgumentException("ERROR: Input Length/Width/Height/Weight cannot be 0");
@@ -138,7 +138,7 @@ public class Main {
                     totalRate += 12.35 + 1.5;
                 }
                 else if(lowercase_type.equals("priority")){
-                    throw new IllegalArgumentException("ERROR: There is no STANDERD option for Priority");
+                    throw new IllegalArgumentException("ERROR: There is no STANDARD option for Priority");
                 }
                 else{
                     totalRate += 1.5;
@@ -194,7 +194,7 @@ public class Main {
                     totalRate += 19.5 + 1.5;
                 }
                 else if(lowercase_type.equals("priority")){
-                    throw new IllegalArgumentException("ERROR: There is no STANDERD option for Priority");
+                    throw new IllegalArgumentException("ERROR: There is no STANDARD option for Priority");
                 }
                 else{
                     totalRate += 1.5;
