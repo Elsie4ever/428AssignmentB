@@ -1,5 +1,3 @@
-package test;
-
 import com.company.Main;
 import org.junit.Test;
 
