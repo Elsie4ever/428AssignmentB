@@ -93,5 +93,29 @@ public class calculatorTest {
             Main calculator = new Main();
             assertEquals(Main.Type.STANDARD,calculator.determineType(2.0, 3.0, 0.8, 0.3));
         }
+        @Test
+        //If type belongs to letter
+        public void Test15() {
+            Main calculator = new Main();
+            assertEquals(Main.Type.LETTER,calculator.determineType(30.8, 20.1, 0.8, 0.3));
+        }
+        @Test
+        //If type belongs to letter
+        public void Test16() {
+            Main calculator = new Main();
+            assertEquals(Main.Type.PACK,calculator.determineType(35.5, 30.0, 2.5, 0.8));
+        }
+        @Test
+        //If type belongs to oversize
+        public void Test17() {
+            Main calculator = new Main();
+            assertEquals(Main.Type.OVERSIZE,calculator.determineType(35.5, 30.0, 2.5, 15.0));
+        }
+        @Test(expected = IllegalArgumentException.class)
+        //If type belongs to nothing
+        public void Test18() {
+            Main calculator = new Main();
+            calculator.determineType(50.0, 60.0, 100.0, 15.0);
+        }
 
 }

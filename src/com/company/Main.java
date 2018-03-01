@@ -88,9 +88,10 @@ public class Main {
         }
         return loc;
     }
-
+    //reference from canada post
     public static Type determineType(Double len, Double wid, Double height, Double weight){
         Type mail;
+        //Standard: 260 mm x 159 mm x 15 mm
         if (len > 1 && len <= 26 &&
                 wid > 0.7 && wid <= 15.9 &&
                 height > 0.01 && height <= 1.5 &&
@@ -98,6 +99,7 @@ public class Main {
         {
             mail = Type.STANDARD;
         }
+        //Letter: 318 mm x 241 mm x 15 mm
         else if (len <= 31.8 &&
                 wid <= 24.1 &&
                 height <= 1.5 &&
@@ -105,6 +107,7 @@ public class Main {
         {
             mail = Type.LETTER;
         }
+        //Pack: 394 mm x 314 mm x 30 mm
         else if (len <= 39.4 &&
                 wid <= 31.4 &&
                 height <= 3 &&
@@ -112,10 +115,10 @@ public class Main {
         {
             mail = Type.PACK;
         }
-        else if (len <= 50 &&
-                wid <= 50 &&
-                height <= 100 &&
-                weight <= 30)
+        //girth = 2 * height + 2 * wid <= 3m
+        else if (wid*2+height*2 <= 300 &&
+                 len <= 300 &&
+                 weight<= 30)
         {
             mail = Type.OVERSIZE;
         }
@@ -172,13 +175,13 @@ public class Main {
             //for every 1m exceeded in girth = 2 * len + 2 * wid, it will charge 10 dollar extra
             else if(mail == Type.OVERSIZE){
                 if(lowercase_type.equals("xpress")){
-                    totalRate += 17.30 + 1.5 + (((2 * len + 2 * wid)/100 - 1) * 10);
+                    totalRate += 17.30 + 1.5 + (((2 * height + 2 * wid)/100 - 1) * 10);
                 }
                 else if(lowercase_type.equals("priority")){
-                    totalRate += 28.95 + (((2 * len + 2 * wid)/100 - 1) * 10);
+                    totalRate += 28.95 + (((2 * height + 2 * wid)/100 - 1) * 10);
                 }
                 else{
-                    totalRate += 1.5 + (((2 * len + 2 * wid)/100 - 1) * 10);
+                    totalRate += 1.5 + (((2 * height + 2 * wid)/100 - 1) * 10);
                 }
                 //Collect on Delivery + Signature Hard Copy + Surcharge for Cylindrical Mailing Tube
                 totalRate += 7.25 + 7.25 + 1.5;
@@ -228,13 +231,13 @@ public class Main {
             //for every 1m exceeded in girth = 2 * len + 2 * wid, it will charge 10 dollar extra
             else if(mail == Type.OVERSIZE){
                 if(lowercase_type.equals("xpress")){
-                    totalRate += 30.80 + 1.5 + (((2 * len + 2 * wid)/100 - 1) * 10);
+                    totalRate += 30.80 + 1.5 + (((2 * height + 2 * wid)/100 - 1) * 10);
                 }
                 else if(lowercase_type.equals("priority")){
-                    totalRate += 47.05 + (((2 * len + 2 * wid)/100 - 1) * 10);
+                    totalRate += 47.05 + (((2 * height + 2 * wid)/100 - 1) * 10);
                 }
                 else{
-                    totalRate += 1.5 + (((2 * len + 2 * wid)/100 - 1) * 10);
+                    totalRate += 1.5 + (((2 * height + 2 * wid)/100 - 1) * 10);
                 }
                 //Collect on Delivery + Signature Hard Copy + Surcharge for Cylindrical Mailing Tube
                 totalRate += 7.25 + 7.25 + 1.5;
