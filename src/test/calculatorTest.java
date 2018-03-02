@@ -7,51 +7,81 @@ public class calculatorTest {
     //input validation check
         @Test(expected = IllegalArgumentException.class)
         //Input "fromPostal" in wrong format
-        public void Test1() {
+        public void InvalidFrom() {
             Main calculator = new Main();
             calculator.isValidEntries("H2X 2E", "H3A 1H3", 10.5, 10.5, 20.0, 10.0, "xpress");
         }
         @Test(expected = IllegalArgumentException.class)
         //Input "fromPostal" is null
-        public void Test2() {
+        public void EmptyFrom() {
             Main calculator = new Main();
             calculator.isValidEntries("", "H3A 1H3", 10.5, 10.5, 20.0, 10.0, "xpress");
         }
         @Test(expected = IllegalArgumentException.class)
         //Input "toPostal" in wrong format
-        public void Test3() {
+        public void InvalidTo() {
             Main calculator = new Main();
             calculator.isValidEntries("H2X 2E2", "H3A 1H", 10.5, 10.5, 20.0, 10.0, "xpress");
         }
         @Test(expected = IllegalArgumentException.class)
         //Input "toPostal" is null
-        public void Test4() {
+        public void EmptyTo() {
             Main calculator = new Main();
             calculator.isValidEntries("H2X 2E2", "", 10.5, 10.5, 20.0, 10.0, "xpress");
         }
         @Test(expected = IllegalArgumentException.class)
         //Input "len" is 0
-        public void Test5() {
+        public void ZeroLength() {
             Main calculator = new Main();
             calculator.isValidEntries("H2X 2E2", "H3A 1H3", 0.0, 10.5, 20.0, 10.0, "xpress");
         }
         @Test(expected = IllegalArgumentException.class)
+        //Input "len" is negative
+        public void NegativeLength() {
+            Main calculator = new Main();
+            calculator.isValidEntries("H2X 2E2", "H3A 1H3", -5.0, 10.5, 20.0, 10.0, "xpress");
+        }
+        @Test(expected = IllegalArgumentException.class)
         //Input "wid" is 0
-        public void Test6() {
+        public void ZeroWidth() {
             Main calculator = new Main();
             calculator.isValidEntries("H2X 2E2", "H3A 1H3", 10.5, 0.0, 20.0, 10.0, "xpress");
         }
         @Test(expected = IllegalArgumentException.class)
+        //Input "wid" is negative
+        public void NegativeWidth() {
+            Main calculator = new Main();
+            calculator.isValidEntries("H2X 2E2", "H3A 1H3", 10.5, -5.0, 20.0, 10.0, "xpress");
+        }
+        @Test(expected = IllegalArgumentException.class)
         //Input "height" is 0
-        public void Test7() {
+        public void ZeroHeight() {
             Main calculator = new Main();
             calculator.isValidEntries("H2X 2E2", "H3A 1H3", 10.5, 10.5, 0.0, 10.0, "xpress");
         }
         @Test(expected = IllegalArgumentException.class)
+        //Input "wid" is negative
+        public void NegativeHeight() {
+            Main calculator = new Main();
+            calculator.isValidEntries("H2X 2E2", "H3A 1H3", 10.5, 10.5, -20.0, 10.0, "xpress");
+        }
+        @Test(expected = IllegalArgumentException.class)
         //Input "weight" is 0
-        public void Test8() {
+        public void ZeroWeight() {
             Main calculator = new Main();
             calculator.isValidEntries("H2X 2E2", "H3A 1H3", 10.5, 10.5, 20.0, 0.0, "xpress");
+        }
+        @Test(expected = IllegalArgumentException.class)
+        //Input "weight" is negative
+        public void NegativeWeight() {
+            Main calculator = new Main();
+            calculator.isValidEntries("H2X 2E2", "H3A 1H3", 10.5, 10.5, 20.0, -10.0, "xpress");
+        }
+        @Test(expected = IllegalArgumentException.class)
+        //Input "weight" is above 30kg
+        public void Overweight() {
+            Main calculator = new Main();
+            calculator.isValidEntries("H2X 2E2", "H3A 1H3", 10.5, 10.5, 20.0, 31.0, "xpress");
         }
         @Test(expected = IllegalArgumentException.class)
         //Input "type" does not match any option

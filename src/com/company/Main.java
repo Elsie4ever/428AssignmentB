@@ -23,32 +23,47 @@ public class Main {
         Double weight;
         String postal_type;
         Double calculated_rate;
-        //CLI
         System.out.println("Welcome to rate calculator!\n");
-        System.out.println("Please enter the 'From(Postal code)/To(Postal code)/Length(CM)/Width(CM)/Height(CM)/Weight(KG)/Post Type' in order to calculate postal rate:\n");
-        System.out.println("Please enter From(Postal code Format: 'H3F 1E2'):\n");
-        Scanner scanner = new Scanner(System.in);
-        from_pc = scanner.nextLine();
-        System.out.println("Please enter To(Postal code Format: 'H3F 1E2'):\n");
-        to_pc = scanner.nextLine();
-        System.out.println("Please enter Length(CM):\n");
-        length = scanner.nextDouble();
-        System.out.println("Please enter Width(CM):\n");
-        width = scanner.nextDouble();
-        System.out.println("Please enter Height(CM):\n");
-        height = scanner.nextDouble();
-        System.out.println("Please enter Weight(KG):\n");
-        weight = scanner.nextDouble();
-        System.out.println("Please enter Post Type (Please enter one of 'Regular/Xpress/Priority'):\n");
-        postal_type = scanner.next();
-        System.out.println("checking...\n");
+        if (args.length > 0) {
+            try {
+                from_pc = args[0];
+                to_pc = args[1];
+                length = Double.parseDouble(args[2]);
+                width = Double.parseDouble(args[3]);
+                height = Double.parseDouble(args[4]);
+                weight = Double.parseDouble(args[5]);
+                postal_type = args[6];
+            } catch (NumberFormatException e){
+                throw new IllegalArgumentException("ERROR: Length, width, height and weight must be numbers.");
+            }
+        }
+        else {
+            //CLI
+            System.out.println("Please enter the 'From(Postal code)/To(Postal code)/Length(CM)/Width(CM)/Height(CM)/Weight(KG)/Post Type' in order to calculate postal rate:\n");
+            System.out.println("Please enter From(Postal code Format: 'H3F 1E2'):\n");
+            Scanner scanner = new Scanner(System.in);
+            from_pc = scanner.nextLine();
+            System.out.println("Please enter To(Postal code Format: 'H3F 1E2'):\n");
+            to_pc = scanner.nextLine();
+            System.out.println("Please enter Length(CM):\n");
+            length = scanner.nextDouble();
+            System.out.println("Please enter Width(CM):\n");
+            width = scanner.nextDouble();
+            System.out.println("Please enter Height(CM):\n");
+            height = scanner.nextDouble();
+            System.out.println("Please enter Weight(KG):\n");
+            weight = scanner.nextDouble();
+            System.out.println("Please enter Post Type (Please enter one of 'Regular/Xpress/Priority'):\n");
+            postal_type = scanner.next();
+            System.out.println("checking...\n");
+        }
         isValidEntries(from_pc, to_pc, length, width, height, weight, postal_type);
         //Determine whether depart and arrive location is in eastern or western Canada
         Location departLoc = determineLocation(from_pc);
         Location arriveLoc = determineLocation(to_pc);
         Type mail_type = determineType(length, width, height, weight);
         calculated_rate = calculateRate(departLoc, arriveLoc, mail_type, length, width, height, weight, postal_type);
-        System.out.print("Rate in total is "+calculated_rate+".");
+        System.out.print("The total rate is $"+calculated_rate+".");
     }
 
     public static boolean isValidEntries(String fromPostal, String toPostal, Double len, Double wid, Double height, Double weight, String type){
@@ -66,6 +81,9 @@ public class Main {
         }
         if(!lowercase_type.equals("regular")&&!lowercase_type.equals("xpress")&&!lowercase_type.equals("priority")){
             throw new IllegalArgumentException("ERROR: Input Type does not match any option");
+        }
+        if(weight > 30){
+            throw new IllegalArgumentException("ERROR: Item weight is too high.");
         }
         isValid = true;
         return isValid;
