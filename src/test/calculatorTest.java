@@ -85,13 +85,13 @@ public class calculatorTest {
         }
         @Test(expected = IllegalArgumentException.class)
         //Input "type" does not match any option
-        public void Test9() {
+        public void InvalidType() {
             Main calculator = new Main();
             calculator.isValidEntries("H2X 2E2", "H3A 1H3", 10.5, 10.5, 20.0, 10.0, "what?");
         }
         @Test
         //If all input are correct
-        public void Test10() {
+        public void ValidInputs() {
             Main calculator = new Main();
             boolean validity = calculator.isValidEntries("H2X 2E2", "H3A 1H3", 10.5, 10.5, 20.0, 10.0, "xpress");
             assertEquals(true,validity);
@@ -100,50 +100,50 @@ public class calculatorTest {
     //test determineLocation()
         @Test
         //If postal code start with 'h'
-        public void Test11() {
+        public void EastPostalCode() {
             Main calculator = new Main();
             assertEquals(Main.Location.EAST,calculator.determineLocation("H2X 2E2"));
         }
         @Test
-        //If postal code start with 'h'
-        public void Test12() {
+        //If postal code start with 'x'
+        public void WestPostalCode() {
             Main calculator = new Main();
             assertEquals(Main.Location.WEST,calculator.determineLocation("X2X 2E2"));
         }
         @Test(expected = IllegalArgumentException.class)
         //If postal code not in east or west
-        public void Test13() {
+        public void InvalidPostalCode() {
             Main calculator = new Main();
             calculator.determineLocation("D2X 2E2");
         }
     //test determineType()
         @Test
         //If type belongs to standard
-        public void Test14() {
+        public void StandardType() {
             Main calculator = new Main();
             assertEquals(Main.Type.STANDARD,calculator.determineType(2.0, 3.0, 0.8, 0.3));
         }
         @Test
         //If type belongs to letter
-        public void Test15() {
+        public void LetterType() {
             Main calculator = new Main();
             assertEquals(Main.Type.LETTER,calculator.determineType(30.8, 20.1, 0.8, 0.3));
         }
         @Test
         //If type belongs to letter
-        public void Test16() {
+        public void PackType() {
             Main calculator = new Main();
             assertEquals(Main.Type.PACK,calculator.determineType(35.5, 30.0, 2.5, 0.8));
         }
         @Test
         //If type belongs to oversize
-        public void Test17() {
+        public void OversizeType() {
             Main calculator = new Main();
             assertEquals(Main.Type.OVERSIZE,calculator.determineType(35.5, 30.0, 2.5, 15.0));
         }
         @Test(expected = IllegalArgumentException.class)
         //If type belongs to nothing
-        public void Test18() {
+        public void NullType() {
             Main calculator = new Main();
             calculator.determineType(50.0, 60.0, 100.0, 15.0);
         }
