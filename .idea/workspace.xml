@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a1c01cc-89e2-42a4-a0b8-c7e3414401ae" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/com/company/Main.class" afterPath="$PROJECT_DIR$/out/production/com/company/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/calculatorTest.class" afterPath="$PROJECT_DIR$/out/test/calculatorTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Main.java" afterPath="$PROJECT_DIR$/src/com/company/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/calculatorTest.java" afterPath="$PROJECT_DIR$/src/test/calculatorTest.java" />
     </list>
     <ignored path="428AssignmentB.iws" />
@@ -34,8 +30,8 @@
       <file leaf-file-name="calculatorTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/calculatorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.13385826">
-              <caret line="174" column="60" selection-start-line="174" selection-start-column="60" selection-end-line="174" selection-end-column="60" />
+            <state vertical-scroll-proportion="0.39370078">
+              <caret line="215" column="133" selection-start-line="215" selection-start-column="133" selection-end-line="215" selection-end-column="133" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -590,44 +586,44 @@
       <created>1519926912507</created>
       <option name="number" value="Default" />
       <updated>1519926912507</updated>
-      <workItem from="1519926913836" duration="34039000" />
+      <workItem from="1519926913836" duration="35433000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="calculatorTest - 2018.03.03 at 00h 40m 38s.xml">
+    <history-entry file="calculatorTest - 2018.03.03 at 02h 23m 54s.xml">
       <configuration name="calculatorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="calculatorTest - 2018.03.03 at 00h 42m 51s.xml">
+    <history-entry file="calculatorTest - 2018.03.03 at 02h 24m 55s.xml">
       <configuration name="calculatorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="calculatorTest - 2018.03.03 at 00h 44m 15s.xml">
+    <history-entry file="calculatorTest - 2018.03.03 at 02h 25m 07s.xml">
       <configuration name="calculatorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="calculatorTest - 2018.03.03 at 00h 47m 52s.xml">
+    <history-entry file="calculatorTest - 2018.03.03 at 02h 25m 23s.xml">
       <configuration name="calculatorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="calculatorTest - 2018.03.03 at 00h 49m 09s.xml">
+    <history-entry file="calculatorTest - 2018.03.03 at 02h 27m 22s.xml">
       <configuration name="calculatorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="calculatorTest - 2018.03.03 at 01h 32m 34s.xml">
+    <history-entry file="calculatorTest - 2018.03.03 at 02h 28m 27s.xml">
       <configuration name="calculatorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="calculatorTest - 2018.03.03 at 01h 37m 36s.xml">
+    <history-entry file="calculatorTest - 2018.03.03 at 02h 29m 48s.xml">
       <configuration name="calculatorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="calculatorTest - 2018.03.03 at 01h 38m 06s.xml">
+    <history-entry file="calculatorTest - 2018.03.03 at 02h 31m 02s.xml">
       <configuration name="calculatorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="calculatorTest - 2018.03.03 at 01h 58m 07s.xml">
+    <history-entry file="calculatorTest - 2018.03.03 at 02h 32m 40s.xml">
       <configuration name="calculatorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="calculatorTest - 2018.03.03 at 01h 58m 32s.xml">
+    <history-entry file="calculatorTest - 2018.03.03 at 02h 33m 18s.xml">
       <configuration name="calculatorTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34039000" />
+    <option name="totallyTimeSpent" value="35433000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="677" y="0" width="1251" height="721" extended-state="0" />
@@ -688,8 +684,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/calculatorTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13385826">
-          <caret line="174" column="60" selection-start-line="174" selection-start-column="60" selection-end-line="174" selection-end-column="60" />
+        <state vertical-scroll-proportion="0.39370078">
+          <caret line="215" column="133" selection-start-line="215" selection-start-column="133" selection-end-line="215" selection-end-column="133" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
