@@ -190,7 +190,18 @@ public class calculatorTest {
     @Test(expected = IllegalArgumentException.class)
     public void StandardPriorityOption() {
         Main calculator = new Main();
+        calculator.calculateRate(Main.Location.EAST, Main.Location.EAST, Main.Type.STANDARD, 2.0, 3.0, 0.8, 0.3, "priority");
+    }
+    @Test(expected = IllegalArgumentException.class)
+    public void StandardPriorityOptionNational() {
+        Main calculator = new Main();
         calculator.calculateRate(Main.Location.EAST, Main.Location.WEST, Main.Type.STANDARD, 2.0, 3.0, 0.8, 0.3, "priority");
+    }
+    @Test
+    public void XpressStandardRate() {
+        Main calculator = new Main();
+        double rate = calculator.calculateRate(Main.Location.EAST, Main.Location.EAST, Main.Type.STANDARD, 2.0, 3.0, 0.8, 0.3, "xpress");
+        assertTrue(13.85 == rate);
     }
     @Test
     public void XpressStandardNationalRate() {
@@ -199,22 +210,112 @@ public class calculatorTest {
         assertTrue(21.0 == rate);
     }
     @Test
+    public void RegularLetterRate() {
+        Main calculator = new Main();
+        double rate = calculator.calculateRate(Main.Location.EAST, Main.Location.EAST, Main.Type.LETTER, 30.8, 20.1, 0.8, 0.3, "regular");
+        assertTrue(1.5 == rate);
+    }
+    @Test
+    public void RegularLetterRateNational() {
+        Main calculator = new Main();
+        double rate = calculator.calculateRate(Main.Location.EAST, Main.Location.WEST, Main.Type.LETTER, 30.8, 20.1, 0.8, 0.3, "regular");
+        assertTrue(1.5 == rate);
+    }
+    @Test
+    public void PriorityLetterRate() {
+        Main calculator = new Main();
+        double rate = calculator.calculateRate(Main.Location.EAST, Main.Location.EAST, Main.Type.LETTER, 30.8, 20.1, 0.8, 0.3, "priority");
+        assertTrue(27.9 == rate);
+    }
+    @Test
     public void PriorityLetterNationalRate() {
         Main calculator = new Main();
-        double rate = calculator.calculateRate(Main.Location.EAST, Main.Location.WEST, Main.Type.LETTER, 2.0, 3.0, 0.8, 0.3, "priority");
+        double rate = calculator.calculateRate(Main.Location.EAST, Main.Location.WEST, Main.Type.LETTER, 30.8, 20.1, 0.8, 0.3, "priority");
         assertTrue(41.1 == rate);
     }
     @Test
-    public void PriorityOversizeRegionalRate() {
+    public void XpressLetterRate() {
         Main calculator = new Main();
-        double rate = calculator.calculateRate(Main.Location.WEST, Main.Location.WEST, Main.Type.OVERSIZE, 2.0, 3.0, 0.8, 0.3, "priority");
-        assertTrue(19.71 == rate);
+        double rate = calculator.calculateRate(Main.Location.EAST, Main.Location.EAST, Main.Type.LETTER, 30.8, 20.1, 0.8, 0.3, "xpress");
+        assertTrue(15.3 == rate);
     }
     @Test
-    public void XpressPackRegionalRate() {
+    public void XpressLetterNationalRate() {
         Main calculator = new Main();
-        double rate = calculator.calculateRate(Main.Location.WEST, Main.Location.WEST, Main.Type.PACK, 2.0, 3.0, 0.8, 0.3, "xpress");
+        double rate = calculator.calculateRate(Main.Location.EAST, Main.Location.WEST, Main.Type.LETTER, 30.8, 20.1, 0.8, 0.3, "xpress");
+        assertTrue(21.65 == rate);
+    }
+    @Test
+    public void RegularPackRate() {
+        Main calculator = new Main();
+        double rate = calculator.calculateRate(Main.Location.EAST, Main.Location.EAST, Main.Type.PACK, 35.5, 30.0, 2.5, 0.8, "regular");
+        assertTrue(1.5 == rate);
+    }
+    @Test
+    public void RegularPackNationalRate() {
+        Main calculator = new Main();
+        double rate = calculator.calculateRate(Main.Location.EAST, Main.Location.WEST, Main.Type.PACK, 35.5, 30.0, 2.5, 0.8, "regular");
+        assertTrue(1.5 == rate);
+    }
+    @Test
+    public void PriorityPackRate() {
+        Main calculator = new Main();
+        double rate = calculator.calculateRate(Main.Location.EAST, Main.Location.EAST, Main.Type.PACK, 35.5, 30.0, 2.5, 0.8, "priority");
+        assertTrue(28.95 == rate);
+    }
+    @Test
+    public void PriorityPackNationalRate() {
+        Main calculator = new Main();
+        double rate = calculator.calculateRate(Main.Location.EAST, Main.Location.WEST, Main.Type.PACK, 35.5, 30.0, 2.5, 0.8, "priority");
+        assertTrue(47.05 == rate);
+    }
+    @Test
+    public void XpressPackRate() {
+        Main calculator = new Main();
+        double rate = calculator.calculateRate(Main.Location.EAST, Main.Location.EAST, Main.Type.PACK, 35.5, 30.0, 2.5, 0.8, "xpress");
         assertTrue(18.8 == rate);
+    }
+    @Test
+    public void XpressPackNationalRate() {
+        Main calculator = new Main();
+        double rate = calculator.calculateRate(Main.Location.EAST, Main.Location.WEST, Main.Type.PACK, 35.5, 30.0, 2.5, 0.8, "xpress");
+        assertTrue(32.3 == rate);
+    }
+    @Test
+    public void RegularOversizeRate() {
+        Main calculator = new Main();
+        double rate = calculator.calculateRate(Main.Location.WEST, Main.Location.WEST, Main.Type.OVERSIZE, 35.5, 30.0, 2.5, 15.0, "regular");
+        assertTrue(1.5 == rate);
+    }
+    @Test
+    public void RegularOversizeNationalRate() {
+        Main calculator = new Main();
+        double rate = calculator.calculateRate(Main.Location.EAST, Main.Location.WEST, Main.Type.OVERSIZE, 35.5, 30.0, 2.5, 15.0, "regular");
+        assertTrue(1.5 == rate);
+    }
+    @Test
+    public void PriorityOversizeRate() {
+        Main calculator = new Main();
+        double rate = calculator.calculateRate(Main.Location.WEST, Main.Location.WEST, Main.Type.OVERSIZE, 35.5, 30.0, 2.5, 15.0, "priority");
+        assertTrue(28.95 == rate);
+    }
+    @Test
+    public void PriorityOversizeNationalRate() {
+        Main calculator = new Main();
+        double rate = calculator.calculateRate(Main.Location.EAST, Main.Location.WEST, Main.Type.OVERSIZE, 35.5, 30.0, 2.5, 15.0, "priority");
+        assertTrue(47.05 == rate);
+    }
+    @Test
+    public void XpressOversizeRate() {
+        Main calculator = new Main();
+        double rate = calculator.calculateRate(Main.Location.WEST, Main.Location.WEST, Main.Type.OVERSIZE, 35.5, 30.0, 2.5, 15.0, "xpress");
+        assertTrue(18.8 == rate);
+    }
+    @Test
+    public void XpressOversizeNationalRate() {
+        Main calculator = new Main();
+        double rate = calculator.calculateRate(Main.Location.EAST, Main.Location.WEST, Main.Type.OVERSIZE, 35.5, 30.0, 2.5, 15.0, "xpress");
+        assertTrue(32.3 == rate);
     }
 
 }

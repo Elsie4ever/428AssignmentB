@@ -159,7 +159,7 @@ public class Main {
                     throw new IllegalArgumentException("ERROR: There is no STANDARD option for Priority");
                 }
                 else{
-                    totalRate += 1.5;
+                    totalRate += 1.5 ;
                 }
                 //Collect on Delivery + Signature Hard Copy + Surcharge for Cylindrical Mailing Tube
                 //totalRate += 7.25 + 7.25 + 1.5;
@@ -192,14 +192,18 @@ public class Main {
             }
             //for every 1m exceeded in girth = 2 * len + 2 * wid, it will charge 10 dollar extra
             else if(mail == Type.OVERSIZE){
+                double temp = (2 * height + 2 * wid)/100;
+                if(temp<1){
+                    temp = 1;
+                }
                 if(lowercase_type.equals("xpress")){
-                    totalRate += 17.30 + 1.5 + (((2 * height + 2 * wid)/100 - 1) * 10);
+                    totalRate += 17.30 + 1.5 + ((temp - 1) * 10);
                 }
                 else if(lowercase_type.equals("priority")){
-                    totalRate += 28.95 + (((2 * height + 2 * wid)/100 - 1) * 10);
+                    totalRate += 28.95 + ((temp - 1) * 10);
                 }
                 else{
-                    totalRate += 1.5 + (((2 * height + 2 * wid)/100 - 1) * 10);
+                    totalRate += 1.5 + ((temp - 1) * 10);
                 }
                 //Collect on Delivery + Signature Hard Copy + Surcharge for Cylindrical Mailing Tube
                 //totalRate += 7.25 + 7.25 + 1.5;
@@ -248,14 +252,18 @@ public class Main {
             }
             //for every 1m exceeded in girth = 2 * len + 2 * wid, it will charge 10 dollar extra
             else if(mail == Type.OVERSIZE){
+                double temp = (2 * height + 2 * wid)/100;
+                if(temp<1){
+                    temp = 1;
+                }
                 if(lowercase_type.equals("xpress")){
-                    totalRate += 30.80 + 1.5 + (((2 * height + 2 * wid)/100 - 1) * 10);
+                    totalRate += 30.80 + 1.5 + ((temp - 1) * 10);
                 }
                 else if(lowercase_type.equals("priority")){
-                    totalRate += 47.05 + (((2 * height + 2 * wid)/100 - 1) * 10);
+                    totalRate += 47.05 + ((temp - 1) * 10);
                 }
                 else{
-                    totalRate += 1.5 + (((2 * height + 2 * wid)/100 - 1) * 10);
+                    totalRate += 1.5 + ((temp - 1) * 10);
                 }
                 //Collect on Delivery + Signature Hard Copy + Surcharge for Cylindrical Mailing Tube
                 //totalRate += 7.25 + 7.25 + 1.5;
