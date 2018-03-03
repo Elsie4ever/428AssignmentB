@@ -1,34 +1,51 @@
 import com.company.Main;
-import org.junit.Test;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
+import org.junit.*;
+
+import java.io.PrintStream;
 
 import static org.junit.Assert.*;
 
 public class calculatorTest {
     //input validation check
-    @Test(expected = IllegalArgumentException.class)
-    //Input "fromPostal" in wrong format
-    public void InvalidFrom() {
+    @Test
+    //If all input are correct
+    public void NoArgsValidInputs() {
         Main calculator = new Main();
-        calculator.isValidEntries("H2X 2E", "H3A 1H3", 10.5, 10.5, 20.0, 10.0, "xpress");
+        boolean validity = calculator.isValidEntries("H2X 2E2", "H3A 1H3", 10.5, 10.5, 20.0, 10.0, "xpress");
+        assertEquals(true,validity);
     }
+
     @Test(expected = IllegalArgumentException.class)
     //Input "fromPostal" is null
     public void EmptyFrom() {
         Main calculator = new Main();
         calculator.isValidEntries("", "H3A 1H3", 10.5, 10.5, 20.0, 10.0, "xpress");
     }
+
     @Test(expected = IllegalArgumentException.class)
-    //Input "toPostal" in wrong format
-    public void InvalidTo() {
+    //Input "fromPostal" in wrong format
+    public void InvalidFrom() {
         Main calculator = new Main();
-        calculator.isValidEntries("H2X 2E2", "H3A 1H", 10.5, 10.5, 20.0, 10.0, "xpress");
+        calculator.isValidEntries("H2X 2E", "H3A 1H3", 10.5, 10.5, 20.0, 10.0, "xpress");
     }
+
     @Test(expected = IllegalArgumentException.class)
     //Input "toPostal" is null
     public void EmptyTo() {
         Main calculator = new Main();
         calculator.isValidEntries("H2X 2E2", "", 10.5, 10.5, 20.0, 10.0, "xpress");
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    //Input "toPostal" in wrong format
+    public void InvalidTo() {
+        Main calculator = new Main();
+        calculator.isValidEntries("H2X 2E2", "H3A 1H", 10.5, 10.5, 20.0, 10.0, "xpress");
+    }
+
     @Test(expected = IllegalArgumentException.class)
     //Input "len" is 0
     public void ZeroLength() {
@@ -44,17 +61,18 @@ public class calculatorTest {
     @Test(expected = IllegalArgumentException.class)
     //Input not a number
     public void InvalidNumberLength(){
-        String[] args = {"H2X 2E2", "H3A 1H3", "notnum", "5.0", "20.0", "10.0", "xpress"};
-        Main calculator = new Main();
-        calculator.main(args);
+        try {
+            String[] args = {"H2X 2E2", "H3A 1H3", "notnum", "5.0", "20.0", "10.0", "xpress"};
+            Main calculator = new Main();
+            calculator.main(args);
+        }
+        catch(IllegalArgumentException e){
+            String message = "ERROR: Length, width, height and weight must be numbers.";
+            assertEquals(message, e.getMessage());
+            throw new IllegalArgumentException(message);
+        }
     }
-    @Test(expected = IllegalArgumentException.class)
-    //Input not a number
-    public void InvalidNumberWidth(){
-        String[] args = {"H2X 2E2", "H3A 1H3", "10.5", "notnum", "20.0", "10.0", "xpress"};
-        Main calculator = new Main();
-        calculator.main(args);
-    }
+
     @Test(expected = IllegalArgumentException.class)
     //Input "wid" is 0
     public void ZeroWidth() {
@@ -80,13 +98,6 @@ public class calculatorTest {
         calculator.isValidEntries("H2X 2E2", "H3A 1H3", 10.5, 10.5, -20.0, 10.0, "xpress");
     }
     @Test(expected = IllegalArgumentException.class)
-    //Input not a number
-    public void InvalidNumberHeight(){
-        String[] args = {"H2X 2E2", "H3A 1H3", "10.5", "10.5", "notnum", "10.0", "xpress"};
-        Main calculator = new Main();
-        calculator.main(args);
-    }
-    @Test(expected = IllegalArgumentException.class)
     //Input "weight" is 0
     public void ZeroWeight() {
         Main calculator = new Main();
@@ -105,24 +116,10 @@ public class calculatorTest {
         calculator.isValidEntries("H2X 2E2", "H3A 1H3", 10.5, 10.5, 20.0, 31.0, "xpress");
     }
     @Test(expected = IllegalArgumentException.class)
-    //Input not a number
-    public void InvalidNumberWeight(){
-        String[] args = {"H2X 2E2", "H3A 1H3", "10.5", "10.5", "20.0", "notnum", "xpress"};
-        Main calculator = new Main();
-        calculator.main(args);
-    }
-    @Test(expected = IllegalArgumentException.class)
     //Input "type" does not match any option
-    public void InvalidType() {
+    public void InvalidPackageType() {
         Main calculator = new Main();
         calculator.isValidEntries("H2X 2E2", "H3A 1H3", 10.5, 10.5, 20.0, 10.0, "inexistent");
-    }
-    @Test
-    //If all input are correct
-    public void ValidInputs() {
-        Main calculator = new Main();
-        boolean validity = calculator.isValidEntries("H2X 2E2", "H3A 1H3", 10.5, 10.5, 20.0, 10.0, "xpress");
-        assertEquals(true,validity);
     }
 
     //test determineLocation()
@@ -158,7 +155,7 @@ public class calculatorTest {
         assertEquals(Main.Type.LETTER,calculator.determineType(30.8, 20.1, 0.8, 0.3));
     }
     @Test
-    //If type belongs to letter
+    //If type belongs to pack
     public void PackType() {
         Main calculator = new Main();
         assertEquals(Main.Type.PACK,calculator.determineType(35.5, 30.0, 2.5, 0.8));
@@ -175,5 +172,12 @@ public class calculatorTest {
         Main calculator = new Main();
         calculator.determineType(50.0, 60.0, 100.0, 15.0);
     }
-
+    //Not yet screenshot. Example test for output validation
+    /*@Test
+    public void RegularRate() {
+        Main calculator = new Main();
+        double rate = calculator.calculateRate(Main.Location.EAST, Main.Location.EAST, Main.Type.STANDARD, 2.0, 3.0, 0.8, 0.3, "regular");
+        System.out.println(rate);
+        assertTrue(1.5 == rate);
+    } */
 }

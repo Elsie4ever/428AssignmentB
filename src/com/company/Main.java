@@ -15,15 +15,15 @@ public class Main {
     }
     public static void main(String[] args) {
         //variables
-        String from_pc;
-        String to_pc;
-        Double length;
-        Double width;
-        Double height;
-        Double weight;
-        String postal_type;
+        String from_pc = "";
+        String to_pc ="";
+        Double length = 0.0;
+        Double width =0.0;
+        Double height=0.0;
+        Double weight=0.0;
+        String postal_type="";
         Double calculated_rate;
-        System.out.println("Welcome to rate calculator!\n");
+        //System.out.println("Welcome to rate calculator!\n");
         if (args.length > 0) {
             try {
                 from_pc = args[0];
@@ -73,32 +73,32 @@ public class Main {
         if(fromPostal.equals("")||fromPostal.length()!=7||!Character.isLetter(fromPostal.charAt(0))){
             throw new IllegalArgumentException("ERROR: Input 'From' cannot be empty/in wrong format");
         }
+
         if(toPostal.equals("")||toPostal.length()!=7||!Character.isLetter(toPostal.charAt(0))){
             throw new IllegalArgumentException("ERROR: Input 'To' cannot be empty/in wrong format");
         }
-        if(len<=0||wid <=0||height<=0||weight<=0){
+        if(len<=0||wid <=0||height <= 0||weight<=0){
             throw new IllegalArgumentException("ERROR: Input Length/Width/Height/Weight must be over 0");
-        }
-        if(!lowercase_type.equals("regular")&&!lowercase_type.equals("xpress")&&!lowercase_type.equals("priority")){
-            throw new IllegalArgumentException("ERROR: Input Type does not match any option");
         }
         if(weight > 30){
             throw new IllegalArgumentException("ERROR: Item weight is too high.");
+        }
+        if(!lowercase_type.equals("regular")&&!lowercase_type.equals("xpress")&&!lowercase_type.equals("priority")){
+            throw new IllegalArgumentException("ERROR: Input Type does not match any option");
         }
         isValid = true;
         return isValid;
     }
 
     public static Location determineLocation(String post_code){
-        Location loc;
         //since the first letter of postal code represents the province within canada
         char first_letter = post_code.toLowerCase().charAt(0);
+        Location loc;
         if(first_letter=='x'||first_letter=='y'||first_letter=='v'||first_letter=='t'||first_letter=='s'||first_letter=='r'){
             loc = Location.WEST;
         }
         else if(first_letter=='a'||first_letter=='b'||first_letter=='c'||first_letter=='e'||first_letter=='j'||first_letter=='p'||
-                first_letter=='g'||first_letter=='h'||first_letter=='k'||first_letter=='m'||first_letter=='n'||first_letter=='l')
-        {
+                first_letter=='g'||first_letter=='h'||first_letter=='k'||first_letter=='m'||first_letter=='n'||first_letter=='l') {
             loc = Location.EAST;
         }
         else{
@@ -106,9 +106,9 @@ public class Main {
         }
         return loc;
     }
-    //reference from canada post
+    //reference for data taken from the official canada post info sheet
     public static Type determineType(Double len, Double wid, Double height, Double weight){
-        Type mail;
+        Type mail = Type.OVERSIZE;
         //Standard: 260 mm x 159 mm x 15 mm
         if (len > 1 && len <= 26 &&
                 wid > 0.7 && wid <= 15.9 &&
@@ -135,8 +135,8 @@ public class Main {
         }
         //girth = 2 * height + 2 * wid <= 3m
         else if (wid*2+height*2 <= 300 &&
-                 len <= 300 &&
-                 weight<= 30)
+                len <= 300 &&
+                weight<= 30)
         {
             mail = Type.OVERSIZE;
         }
@@ -162,7 +162,7 @@ public class Main {
                     totalRate += 1.5;
                 }
                 //Collect on Delivery + Signature Hard Copy + Surcharge for Cylindrical Mailing Tube
-                totalRate += 7.25 + 7.25 + 1.5;
+                //totalRate += 7.25 + 7.25 + 1.5;
             }
             else if(mail == Type.LETTER){
                 if(lowercase_type.equals("xpress")){
@@ -175,7 +175,7 @@ public class Main {
                     totalRate += 1.5;
                 }
                 //Collect on Delivery + Signature Hard Copy + Surcharge for Cylindrical Mailing Tube
-                totalRate += 7.25 + 7.25 + 1.5;
+                //totalRate += 7.25 + 7.25 + 1.5;
             }
             else if(mail == Type.PACK){
                 if(lowercase_type.equals("xpress")){
@@ -188,7 +188,7 @@ public class Main {
                     totalRate += 1.5;
                 }
                 //Collect on Delivery + Signature Hard Copy + Surcharge for Cylindrical Mailing Tube
-                totalRate += 7.25 + 7.25 + 1.5;
+                //totalRate += 7.25 + 7.25 + 1.5;
             }
             //for every 1m exceeded in girth = 2 * len + 2 * wid, it will charge 10 dollar extra
             else if(mail == Type.OVERSIZE){
@@ -202,7 +202,7 @@ public class Main {
                     totalRate += 1.5 + (((2 * height + 2 * wid)/100 - 1) * 10);
                 }
                 //Collect on Delivery + Signature Hard Copy + Surcharge for Cylindrical Mailing Tube
-                totalRate += 7.25 + 7.25 + 1.5;
+                //totalRate += 7.25 + 7.25 + 1.5;
             }
         }
         //national
@@ -218,7 +218,7 @@ public class Main {
                     totalRate += 1.5;
                 }
                 //Collect on Delivery + Signature Hard Copy + Surcharge for Cylindrical Mailing Tube
-                totalRate += 7.25 + 7.25 + 1.5;
+                //totalRate += 7.25 + 7.25 + 1.5;
             }
             else if(mail == Type.LETTER){
                 if(lowercase_type.equals("xpress")){
@@ -231,7 +231,7 @@ public class Main {
                     totalRate += 1.5;
                 }
                 //Collect on Delivery + Signature Hard Copy + Surcharge for Cylindrical Mailing Tube
-                totalRate += 7.25 + 7.25 + 1.5;
+                //totalRate += 7.25 + 7.25 + 1.5;
             }
             else if(mail == Type.PACK){
                 if(lowercase_type.equals("xpress")){
@@ -244,7 +244,7 @@ public class Main {
                     totalRate += 1.5;
                 }
                 //Collect on Delivery + Signature Hard Copy + Surcharge for Cylindrical Mailing Tube
-                totalRate += 7.25 + 7.25 + 1.5;
+                //totalRate += 7.25 + 7.25 + 1.5;
             }
             //for every 1m exceeded in girth = 2 * len + 2 * wid, it will charge 10 dollar extra
             else if(mail == Type.OVERSIZE){
@@ -258,7 +258,7 @@ public class Main {
                     totalRate += 1.5 + (((2 * height + 2 * wid)/100 - 1) * 10);
                 }
                 //Collect on Delivery + Signature Hard Copy + Surcharge for Cylindrical Mailing Tube
-                totalRate += 7.25 + 7.25 + 1.5;
+                //totalRate += 7.25 + 7.25 + 1.5;
             }
 
         }
