@@ -108,7 +108,7 @@ public class Main {
     }
     //reference for data taken from the official canada post info sheet
     public static Type determineType(Double len, Double wid, Double height, Double weight){
-        Type mail = Type.OVERSIZE;
+        Type mail;
         //Standard: 260 mm x 159 mm x 15 mm
         if (len > 1 && len <= 26 &&
                 wid > 0.7 && wid <= 15.9 &&

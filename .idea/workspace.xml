@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a1c01cc-89e2-42a4-a0b8-c7e3414401ae" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/calculatorTest.java" afterPath="$PROJECT_DIR$/src/test/calculatorTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Main.java" afterPath="$PROJECT_DIR$/src/com/company/Main.java" />
     </list>
     <ignored path="428AssignmentB.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,10 +27,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="calculatorTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="calculatorTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/calculatorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.39370078">
+            <state vertical-scroll-proportion="0.0">
               <caret line="215" column="133" selection-start-line="215" selection-start-column="133" selection-end-line="215" selection-end-column="133" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -39,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-22.61111">
-              <caret line="204" column="18" selection-start-line="204" selection-start-column="18" selection-end-line="204" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.3027523">
+              <caret line="110" column="17" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -62,8 +62,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/company/Main.java" />
         <option value="$PROJECT_DIR$/src/test/calculatorTest.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Main.java" />
       </list>
     </option>
   </component>
@@ -586,7 +586,7 @@
       <created>1519926912507</created>
       <option name="number" value="Default" />
       <updated>1519926912507</updated>
-      <workItem from="1519926913836" duration="35433000" />
+      <workItem from="1519926913836" duration="35736000" />
     </task>
     <servers />
   </component>
@@ -623,7 +623,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35433000" />
+    <option name="totallyTimeSpent" value="35736000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="677" y="0" width="1251" height="721" extended-state="0" />
@@ -674,21 +674,21 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-22.61111">
-          <caret line="204" column="18" selection-start-line="204" selection-start-column="18" selection-end-line="204" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/calculatorTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39370078">
+        <state vertical-scroll-proportion="0.0">
           <caret line="215" column="133" selection-start-line="215" selection-start-column="133" selection-end-line="215" selection-end-column="133" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3027523">
+          <caret line="110" column="17" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
