@@ -69,7 +69,7 @@ public class calculatorTest {
             calculator.main(args);
         }
         catch(IllegalArgumentException e){
-            String message = "ERROR: Length, width, height and weight must be numbers.";
+            String message = "ERROR: Input format is incorrect.";
             assertEquals(message, e.getMessage());
             throw new IllegalArgumentException(message);
         }

@@ -33,8 +33,8 @@ public class Main {
                 height = Double.parseDouble(args[4]);
                 weight = Double.parseDouble(args[5]);
                 postal_type = args[6];
-            } catch (NumberFormatException e){
-                throw new IllegalArgumentException("ERROR: Length, width, height and weight must be numbers.");
+            } catch (IllegalArgumentException ex){
+                throw new IllegalArgumentException("ERROR: Input format is incorrect.");
             }
         }
         else {
