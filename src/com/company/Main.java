@@ -1,5 +1,9 @@
 package com.company;
-
+/*
+Author:
+Elsie Ju (260627548)
+Ke Zhang (260684837)
+*/
 import java.util.Scanner;
 
 public class Main {

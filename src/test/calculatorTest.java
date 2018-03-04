@@ -1,3 +1,8 @@
+/*
+Author:
+Elsie Ju (260627548)
+Ke Zhang (260684837)
+*/
 import com.company.Main;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
